@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- Page -->
+<section class="product-section spad">
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:3rem" class="product-title"><strong>Категории</strong></h2>
+        <div class="row" id="product-filter">
+            {% for category in categoryes %}
+            {% load static %}
+            <div class="mix col-lg-3 col-md-6 best">
+                <a href="{% url 'subcategoryes' category.id %}">
+                    <div class="product-item">
+                        <figure style="height:330px; display: table-cell;vertical-align: middle">
+                            <img style="max-height:330px;" src="{{category.img.url}}" alt="">
+                        </figure>
+                        <div class="product-info">
+                            <h6>{{category.name}}</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+            {% for subcategory in subcategoryes %}
+            {% load static %}
+
+            <div class="mix col-lg-3 col-md-6 best">
+                <a href="{% url 'product_filter' subcategory.id %}">
+                    <div class="product-item">
+                        <figure style="height:330px; display: table-cell;vertical-align: middle">
+                            <img style="max-height:330px" src="{{subcategory.img.url}}" alt="">
+                        </figure>
+                        <div class="product-info">
+                            <h6>{{subcategory.name}}</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+
+            {% for product in products %}
+            {% load static %}
+            <div class="mix col-lg-3 col-md-6 best">
+                <div class="product-item">
+                    <figure style="height:330px; display: table-cell;vertical-align: middle">
+                        <img style="max-height:330px" src="{{product.img.url}}" alt="">
+                    </figure>
+                    <div class="product-info">
+                        <h6>{{product.name}}</h6>
+                        <p style="margin-bottom:0">{{product.price}}<span> c</span></p>
+                        <p><span>Размер: {{product.size}}</span></p>
+                        <a href="{% url 'product_deteil' product.id %}" class="site-btn btn-line">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Page end -->
+{% endblock %}

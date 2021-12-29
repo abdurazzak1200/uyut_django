@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+<section class="map_section">
+	<div class="container">
+		<h2 style="text-align:center;color:#000; margin-bottom:2rem;margin-top:5rem">Адреса</h2>
+		<div class="row">
+			<div style="" class="contact-card">
+				{% for adress in adresses %}
+				<div class="contact-info">
+					<h5 style="color: #fff">{{adress.adress}}</h5>
+					<p>Phone: {{adress.phone}}</p>
+					<p>Telegram: <a href="https://t.me/{{ adress.tg }}">Написать</a></p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+</section>
+{% endblock %}

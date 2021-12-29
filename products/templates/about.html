@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+<div class="page-area contact-page">
+	<div class="container spad">
+		<div class="text-center">
+			<h4 class="contact-title">Get in Touch</h4>
+		</div>
+		<form class="contact-form">
+			<div class="row">
+				<div class="col-md-6">
+					<input type="text" placeholder="First Name *">
+				</div>
+				<div class="col-md-6">
+					<input type="text" placeholder="Last Name *">
+				</div>
+				<div class="col-md-12">
+					<input type="text" placeholder="Subject">
+					<textarea placeholder="Message"></textarea>
+					<div class="text-center">
+						<button class="site-btn">Send Message</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<section class="map_section">
+	<div class="container">
+		<div class="row">
+				<div class="contact-card">
+					<h4 style="color:#fff; margin-bottom:2rem">Адреса</h4>
+					{% for adress in adresses %}
+					<div class="contact-info">
+						<h5 style="color: #fff">{{adress.adress}}</h5>
+						<p>Phone: {{adress.phone}}</p>
+						<p>Telegram: <a href="https://t.me/{{ adress.tg }}">Написать</a></p>
+					</div>
+					{% endfor %}
+				</div>
+		</div>
+	</div>
+
+</section>
+{% endblock %}

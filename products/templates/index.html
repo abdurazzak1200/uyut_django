@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<!-- Product section -->
+{% load static %}
+<section class="hero-section set-bg" data-setbg="{% static 'img/back.png' %}">
+    <div class="hero-slider owl-carousel">
+        {% for carousel in carousels %}
+        <div class="hs-item">
+            <div class="hs-left"><img style="max-width:600px" src="{{carousel.img.url}}" alt=""></div>
+            <div class="hs-right">
+                <div class="hs-content">
+                    <h3 style="color:#fff">Акция!!!</h3>
+                    <div class="price">{{carousel.price}} c</div>
+                    <h2><span>{{carousel.year}}</span> <br>{{carousel.name}}</h2>
+                    <a href="" class="site-btn">Shop NOW!</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="product-section spad">
+    <div class="container">
+
+        <h2 style="text-align:center; margin-bottom:3rem" class="product-title"><strong>Все кафели</strong></h2>
+        <div class="row" id="product-filter">
+            {% for product in products %}
+            {% load static %}
+            <div class="mix col-lg-3 col-md-6 best">
+                <div class="product-item">
+                    <figure style="height:330px; display: table-cell;vertical-align: middle">
+                        <img style="max-height:330px" src="{{product.img.url}}" alt="">
+                    </figure>
+                    <div class="product-info">
+                        <h6>{{product.name}}</h6>
+                        <p style="margin-bottom:0">{{product.price}}<span> c</span></p>
+                        <p><span>Размер: {{product.size}}</span></p>
+                        <a href="{% url 'product_deteil' product.id %}" class="site-btn btn-line">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Product section end -->
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- Page -->
+<div style="margin-bottom: 3rem" class="page-area product-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <figure>
+                    <img class="product-big-img" src="{{product.img.url}}" alt="">
+                </figure>
+                <div class="product-thumbs">
+                    <div class="product-thumbs-track">
+                        <div class="pt" data-imgbigurl="{{product.img.url}}"><img src="{{product.img.url}}" alt=""></div>
+                        {% if product.img2 %}
+                        <div class="pt" data-imgbigurl="{{product.img2.url}}"><img src="{{product.img2.url}}" alt=""></div>
+                        {% endif %}
+                        {% if product.img3 %}
+                        <div class="pt" data-imgbigurl="{{product.img3.url}}"><img src="{{product.img3.url}}" alt=""></div>
+                        {% endif %}
+                        {% if product.img4 %}
+                        <div class="pt" data-imgbigurl="{{product.img4.url}}"><img src="{{product.img4.url}}" alt=""></div>
+                        {% endif %}
+                        {% if product.img5 %}
+                        <div class="pt" data-imgbigurl="{{product.img5.url}}"><img src="{{product.img5.url}}" alt=""></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-content">
+                    <h2>{{product.name}}</h2>
+                    <div class="pc-meta">
+                        <h4 class="price">{{product.price}} c</h4>
+                        <div class="review">
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                            <span>(2 reviews)</span>
+                        </div>
+                    </div>
+                    <p>{% if product.size %}<span>Размер: </span>{{product.size}}{% endif %}</br>Категория: {{ product.category }}</p>
+                    <p>{{product.descript}}</p>
+
+                    <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Page end -->
+{% endblock %}
